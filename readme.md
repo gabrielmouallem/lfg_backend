@@ -6,23 +6,17 @@ Install docker following the link: https://docs.docker.com/get-docker/
 
 - Make sure to run docker on windows 10 after installation
 
-## 2. Make the docker compose up
+## 2. Running Celery Redis Broker
+
+```bash
+docker-compose exec web celery -A lfg_backend worker -l info
+``` 
+
+## 3. Make the docker compose up
 
 ```bash
 docker-compose up --build
 ``` 
-
-## 3. Make the migrations
-
-```bash
-docker-compose run web python manage.py makemigrations
-``` 
-
-and then:
-
-```bash
-docker-compose run web python manage.py migrate
-```
 
 ## 4. Create a django superuser inside the docker container
 
@@ -32,11 +26,23 @@ docker-compose run web python manage.py createsuperuser
 
 To create a superuser for the admin page with the preferred username and password.
 
-## 5. You can access the app on
+## 5. Make the migrations if necessary
+
+```bash
+docker-compose run web python manage.py makemigrations
+``` 
+
+and then:
+
+```bash
+docker-compose run web python manage.py migrate
+``` 
+
+## 6. You can access the app on
 
 http://localhost:8000/
 
-## 6. You can access the admin page on
+## 7. You can access the admin page on
 
 http://localhost:8000/admin
 
