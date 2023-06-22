@@ -12,7 +12,7 @@ Install docker following the link: https://docs.docker.com/get-docker/
 docker-compose up --build
 ``` 
 
-## 3. Make the migrations if necessary
+## 3. Make the migrations
 
 ```bash
 docker-compose run web python manage.py makemigrations
